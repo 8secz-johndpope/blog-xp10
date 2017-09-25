@@ -137,4 +137,7 @@ article a:hover, article a:active {
   text-align: center;
   padding: 20px 0px;
 }
-
+p{
+    font: normal 20px/150% Times;
+    color: #151515;
+}

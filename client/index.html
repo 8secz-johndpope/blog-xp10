@@ -14,7 +14,7 @@
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="IndexController">
+<body ng-controller="IndexController" class="ng-cloak">
 
 
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -33,7 +33,7 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li ng-repeat="s in sections" >
-						<a href="" ng-click="goToSection(s.id)">{{s.name}}</a>
+						<a href="" class="ng-cloak" ng-click="goToSection(s.id)">{{s.name}}</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -66,7 +66,7 @@
 	</nav>
 
 
-	<main ui-view ng-cloak></main>
+	<main ui-view class="ng-cloak"></main>
 	
 
 
