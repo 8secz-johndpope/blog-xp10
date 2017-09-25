@@ -1,0 +1,102 @@
+<link href="css/post.css" rel="stylesheet" type="text/css" media="all" />
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="title-main">
+				<h1>{{post[0].title}}</h1>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+<div class="jumbotron hero-technology" style="background-image: url('{{post[0].image}}'); background-size: cover">
+	<h1 class="hero-title">&nbsp;</h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<article class="main">
+				<aside class="post-meta">
+					<div class="post-info">
+						<p class="text-muted">{{post[0].user}} em {{post[0].createdDate | extenseDate}}</p>
+					</div>
+				</aside>
+				<div ng-bind-html="post[0].content | unsafe"></div>
+			</article>
+			<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+				<a class="a2a_button_facebook"></a>
+				<a class="a2a_button_twitter"></a>
+				<a class="a2a_button_google_plus"></a>
+				<a class="a2a_button_pinterest"></a>
+				<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+			</div>
+
+			<script async src="https://static.addtoany.com/menu/page.js"></script>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+<section class="home-newsletter">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="single">
+					<h2>Quer receber mais conteúdo sobre esse assunto?</h2>
+					<h4>Preencha seu nome e email abaixo, mas fique tranquilo que não mandamos spam :)</h4>
+					<form role="form" action="javascript:;" method="post" id="login-form" name="landingForm">
+						<div class="form-group">
+							<label for="name" class="sr-only">Nome</label>
+							<input required type="text" ng-model="data.name" name="name" id="name" class="form-control" placeholder="Nome">
+							<div ng-class="error" ng-show="landingForm.name.$error.required && landingForm.name.$touched">Nome é obrigatório</div>
+						</div>
+						<div class="form-group">
+							<label for="key" class="sr-only">Password</label>
+							<input required type="email" ng-model="data.email"  name="key" id="key" class="form-control" placeholder="Email">
+							<div ng-class="error" ng-show="landingForm.email.$error.required && landingForm.email.$touched">Email é obrigatório</div>
+							<div ng-class="error" ng-show="landingForm.email.$invalid && landingForm.email.$touched">Email inválido</div>
+						</div>
+						<input type="button" ng-click="signUp()" ng-disabled="landingForm.$invalid" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Cadastrar">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h3>Comentários</h3>
+
+			<div class="row no-comment" ng-show="comments.length <= 0">
+				<div class="col-md-12 align-center">
+					<h4>Sem comentários ainda, seja o primeiro!</h4>
+				</div>
+			</div>
+
+
+			<div class="row" ng-repeat="c in comments" ng-show="comments.length > 0">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<strong>{{c.name}}</strong> <span class="text-muted">comentou em {{c.createdDate | extenseDate}}</span>
+						</div>
+						<div class="panel-body" ng-bind-html="c.content | unsafe">
+						</div><!-- /panel-body -->
+					</div><!-- /panel panel-default -->
+				</div><!-- /col-sm-5 -->
+			</div><!-- /row -->
+
+
+			<div class="row btn-comment">
+				<div class="col-md-12">
+					<input type="button" ng-click="commentPost()" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Comentar">
+				</div><!-- /col-sm-5 -->
+			</div><!-- /row -->
+
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div><!-- /container -->

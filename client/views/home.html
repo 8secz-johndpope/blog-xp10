@@ -1,0 +1,45 @@
+<div class="jumbotron hero-technology" style="background-image: url('{{posts[0].image}}'); background-size: cover">
+	<h1 class="hero-title">{{posts[0].title}}</h1>
+	<p class="hero-subtitle" ng-bind-html="posts[0].subtitle | unsafe"></p>
+	<p><a class="btn btn-primary btn-lg hero-button" role="button" href="" ng-click="goToPost(posts[0].slug)">Ler mais</a></p>
+</div>
+
+<!-- content -->
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4" ng-repeat="p in posts">
+						<div class="l_g_r">
+							<div class="card-blog">
+								<div class="img-cover" style="background-image: url('{{p.image}}'); background-size: cover"></div>
+								<h2>{{p.id}}{{p.title}}</h2>
+								<p class="adm">
+									{{p.createdDate | dateFormat}} | {{p.thumbsUp}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{p.thumbsDown}} <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+								</p>
+								<p class="adm">
+									{{p.views}} visualizações | Por {{p.user}}
+								</p>
+
+								<div ng-bind-html="p.content | limitTo : 256 | unsafe"></div>
+								<div class="btn-action">
+									<button ng-click="goToPost(p.slug)" type="button" class="btn btn-default btn-block">Ler mais</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-2">
+				<div class="single">
+					<input type="button" ng-click="getPosts()" ng-if="showMore" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Carregar mais">
+				</div>
+			</div>
+			<div class="col-md-5"></div>
+		</div>
+	</div>
+</div>
