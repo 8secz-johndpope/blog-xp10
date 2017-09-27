@@ -1,1 +1,2 @@
-server/datasources.json
+./server/datasources.json
+./server/config.json

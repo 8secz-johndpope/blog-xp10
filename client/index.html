@@ -64,6 +64,9 @@
 						<a href="" class="ng-cloak" ng-click="goToState('us')">Quem somos</a>
 					</li>
 					<li>
+						<a href="" class="ng-cloak" ng-click="goToState('ebook')">Ebooks</a>
+					</li>
+					<li>
 						<a href="" class="ng-cloak" ng-click="goToState('about')">Contato</a>
 					</li>
 				</ul>
@@ -198,6 +201,8 @@
 <script src="js/controllers/about.js"></script>
 <script src="js/controllers/us.js"></script>
 <script src="js/controllers/search.js"></script>
+<script src="js/controllers/ebook.js"></script>
+<script src="js/controllers/landing.js"></script>
 
 
 <!-- Example page JS        -->
@@ -223,6 +228,11 @@
       $('#ouibounce-mod .mod').on('click', function(e) {
       	e.stopPropagation();
       });
+
+      setTimeout(function(){
+      	_ouibounce.fire();	
+      },1500)
+      
 
   </script>
   <!-- script-for-nav --> 	

@@ -37,6 +37,16 @@ angular
 		templateUrl: 'views/us.html',
 		controller: 'UsController'
 	})
+	.state('landing', {
+		url: '/landing/:slug',
+		templateUrl: 'views/landing.html',
+		controller: 'LandingController'
+	})
+	.state('ebook', {
+		url: '/ebook',
+		templateUrl: 'views/ebook.html',
+		controller: 'EbookController'
+	})
 	.state('post', {
 		url: '/post/:slug',
 		templateUrl: 'views/post.html',

@@ -1,0 +1,62 @@
+<link href="css/ebook.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- content -->
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4" ng-repeat="p in ebook">
+						<div class="l_g_r">
+							<div class="card-blog">
+								<div ng-click="goToLanding(p.slug)" class="img-cover" style="background-image: url('{{p.photo}}'); background-size: cover"></div>
+								<div class="ebook-title">
+									<h2 ng-click="goToPost(p.slug)">{{p.title}}</h2>
+								</div>
+								<div class="ebook-content" ng-bind-html="p.text | limitTo : 256 | unsafe" ng-click="goToLanding(p.slug)"></div>
+								<div class="btn-action">
+									<button ng-click="goToLanding(p.slug)" type="button" class="btn btn-default btn-block">Baixar ebook</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-2">
+				<div class="single">
+					<input type="button" ng-click="getEbook()" ng-if="showMore" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Carregar mais">
+				</div>
+			</div>
+			<div class="col-md-5"></div>
+		</div>
+	</div>
+</div>
+<section class="ebook-newsletter">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="single">
+					<h2>Quer receber mais conteúdo sobre esse assunto?</h2>
+					<h4>Preencha seu nome e email abaixo, mas fique tranquilo que não mandamos spam :)</h4>
+					<form role="form" action="javascript:;" method="post" id="login-form" name="landingForm">
+						<div class="form-group">
+							<label for="name" class="sr-only">Nome</label>
+							<input required type="text" ng-model="data.name" name="name" id="name" class="form-control" placeholder="Nome">
+							<div ng-class="error" ng-show="landingForm.name.$error.required && landingForm.name.$touched">Nome é obrigatório</div>
+						</div>
+						<div class="form-group">
+							<label for="key" class="sr-only">Email</label>
+							<input required type="email" ng-model="data.email"  name="email" id="email" class="form-control" placeholder="Email">
+							<div ng-class="error" ng-show="landingForm.email.$error.required && landingForm.email.$touched">Email é obrigatório</div>
+							<div ng-class="error" ng-show="landingForm.email.$invalid && landingForm.email.$touched">Email inválido</div>
+						</div>
+						<input type="button" ng-click="signUp()" ng-disabled="landingForm.$invalid" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Cadastrar">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
