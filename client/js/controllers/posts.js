@@ -6,6 +6,8 @@ angular
   $scope.post = [];
   $scope.comments = [];
 
+	$scope.slug = $stateParams.slug;
+
   $scope.getPost = function() {
     Post
     .find(

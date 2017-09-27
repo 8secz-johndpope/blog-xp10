@@ -4,10 +4,10 @@ angular
   $state, $stateParams, Post, Section, User) {
   $scope.posts = [];
   $scope.skip = 0;
-  $scope.limit = 3;
-  $scope.range = 3;
+  $scope.limit = 3000;
+  $scope.range = 3000;
   $scope.showMore = true;
-
+	$scope.section_name = "";
   $scope.section = [];
 
   $scope.getSections = function() {
@@ -21,6 +21,7 @@ angular
     .$promise
     .then(function(response) {
       $scope.section = response;
+	ga('send', 'pageview', '/section/'+response.name);
       $scope.getPosts();
     });
   }
@@ -36,7 +37,7 @@ angular
           "sectionId" : $stateParams.id, 
           "isPublished": true 
         },
-        order: 'createdDate ASC',
+        order: 'createdDate DESC',
         skip: $scope.skip,
         limit: $scope.limit
       },

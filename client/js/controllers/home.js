@@ -2,10 +2,11 @@ angular
 .module('blog')
 .controller('HomeController', ['$scope', '$state', '$stateParams', 'Post', 'Section', 'User', function($scope,
   $state, $stateParams, Post, Section, User) {
-  $scope.posts = [];
+
+	$scope.posts = [];
   $scope.skip = 0;
-  $scope.limit = 3;
-  $scope.range = 3;
+  $scope.limit = 3000;
+  $scope.range = 30000;
   $scope.showMore = true;
 
   $scope.getPosts = function() {
@@ -14,7 +15,7 @@ angular
     {
       filter:{
         where: { "isPublished": true },
-        order: 'createdDate ASC',
+        order: 'createdDate DESC',
         skip: $scope.skip,
         limit: $scope.limit
       },
