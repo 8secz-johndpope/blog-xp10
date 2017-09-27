@@ -1,0 +1,16 @@
+.hero-us{
+	background: linear-gradient(to right,#1D2B64, #8595b5);
+	color: #FFF;
+}
+.us-content{
+	font-family: 'Open Sans', sans-serif;
+}
+.us-h1{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.us-p{
+	line-height: 2.5em;
+    text-align: justify;
+    padding-bottom: 1em;
+}

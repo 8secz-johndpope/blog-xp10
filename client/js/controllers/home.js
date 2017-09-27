@@ -3,6 +3,8 @@ angular
 .controller('HomeController', ['$scope', '$state', '$stateParams', 'Post', 'Section', 'User', function($scope,
   $state, $stateParams, Post, Section, User) {
 
+  ga('send', 'pageview', '/home');
+
 	$scope.posts = [];
   $scope.skip = 0;
   $scope.limit = 3000;

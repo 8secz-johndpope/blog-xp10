@@ -1,4 +1,4 @@
-<div class="jumbotron hero-technology" style="background-image: url('{{posts[0].image}}'); background-size: cover">
+<div class="jumbotron hero-technology" ng-if="posts.length > 0" style="background-image: url('{{posts[0].image}}'); background-size: cover">
 	<h1 class="hero-title">{{posts[0].title}}</h1>
 	<!--<p class="hero-subtitle" ng-bind-html="posts[0].subtitle | unsafe"></p>-->
 	<p><a class="btn btn-default btn-lg hero-button" role="button" href="" ng-click="goToPost(posts[0].slug)">Ler mais</a></p>
@@ -7,6 +7,14 @@
 <!-- content -->
 <div class="content">
 	<div class="container">
+		<div class="row search-result" ng-if="termo">
+			<div class="col-md-12" ng-if="posts.length > 0">
+				<h3>Resultados para: {{termo}}</h3>
+			</div>
+			<div class="col-md-12" ng-if="posts.length <= 0">
+				<h3>Nenhum resultado para: {{termo}}</h3>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
@@ -42,4 +50,3 @@
 		</div>
 	</div>
 </div>
-<script>ga('send', 'pageview', '/home');</script>

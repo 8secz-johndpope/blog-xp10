@@ -1,0 +1,51 @@
+<link href="css/us.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/post.css" rel="stylesheet" type="text/css" media="all" />
+<div class="jumbotron hero-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                Quem somos</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content us-content">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <img src="img/logo-menor.png"/>
+            <h1 class="us-h1">Gerador de Sucesso</h1>
+            <p class="us-p">O Gerador de Sucesso tem como objetivo informar e trazer novidades do mundo corporativo para líderes iniciantes e experientes. Com conteúdos focados aos desafios de um líder, temos a missão de orientar profissionais para expandir seus conhecimentos, ampliar seus horizontes para uma carreira promissora e com um olhar mais humano.
+            </p>
+            <p class="us-p">Transforme a sua liderança com a gente e descubra como otimizar processos e alcançar produtividade e resultados! Conheça-nos: www.geradordesucesso.com.br</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+<section class="home-newsletter">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="single">
+                    <h2>Quer estar sempre em contato conosco?</h2>
+                    <h4>Preencha seu nome e email abaixo e receba as melhores informações sobre o mundo gestão, produtividade, liderança e muito mais!</h4>
+                    <form role="form" action="javascript:;" method="post" id="login-form" name="landingForm">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Nome</label>
+                            <input required type="text" ng-model="data.name" name="name" id="name" class="form-control" placeholder="Nome">
+                            <div ng-class="error" ng-show="landingForm.name.$error.required && landingForm.name.$touched">Nome é obrigatório</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="key" class="sr-only">Email</label>
+                            <input required type="email" ng-model="data.email"  name="email" id="email" class="form-control" placeholder="Email">
+                            <div ng-class="error" ng-show="landingForm.email.$error.required && landingForm.email.$touched">Email é obrigatório</div>
+                            <div ng-class="error" ng-show="landingForm.email.$invalid && landingForm.email.$touched">Email inválido</div>
+                        </div>
+                        <input type="button" ng-click="signUp()" ng-disabled="landingForm.$invalid" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Cadastrar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

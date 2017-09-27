@@ -1,0 +1,14 @@
+.hero-about{
+	background: linear-gradient(to right,#1D2B64, #8595b5);
+	color: #FFF;
+}
+h4.no-post{
+	text-align: center;
+	padding: 20px 0px;
+}
+
+.well{
+	border-radius: 0px;
+	padding: 50px;
+	background-color: ghostwhite;
+}

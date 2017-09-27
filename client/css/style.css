@@ -26,10 +26,14 @@ body a{
 	-ms-transition:0.5s all;
 }
 
-.exit-modal{
-
+.search-form-nav{
+	margin-top: 4px;
 }
 
+.search-result h3{
+	text-align: center !important;
+	padding: 20px 0px;
+}
 .footer-logo{
 	margin: 0 auto;
 	text-align: center;
@@ -981,7 +985,7 @@ span.icon_text {
 	font-size: 13px;
 }
 span {
-	color: #dc8e7f;
+	color: #757575;
 }
 .details li i.admin {
 	background-position: -224px -13px;

@@ -1,6 +1,6 @@
 * { box-sizing: border-box; }
 h1, h2, h3, h4, h5, h6 {
-  font-family: Lato, Helvetica Neue, Arial, sans-serif;
+  font-family: 'Open sans', sans-serif;
   font-weight: 300;
   margin: 1.5em 0 0.25em;
   color: #5b5b5b;
@@ -107,7 +107,12 @@ article a:hover, article a:active {
   position: relative;
   z-index: 2; 
 }
-.home-newsletter h4 { color: #FFF; }
+.home-newsletter h4 {     
+  color: #FFF;
+  font-weight: 100;
+  line-height: 2em;
+  letter-spacing: 2px; 
+}
 .home-newsletter .single h2 {
   font-size: 22px;
   color: white;

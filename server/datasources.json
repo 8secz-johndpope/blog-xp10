@@ -4,13 +4,13 @@
     "connector": "memory"
   },
   "mysql": {
-    "host": "localhost",
+    "host": "sql10.freemysqlhosting.net",
     "port": 3306,
     "url": "",
-    "database": "blog",
-    "password": "$Strong#82#82",
+    "database": "sql10196018",
+    "password": "n7a8rIdQx8",
     "name": "mysql",
-    "user": "root",
+    "user": "sql10196018",
     "connector": "mysql"
   }
 }

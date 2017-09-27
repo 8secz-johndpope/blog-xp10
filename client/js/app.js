@@ -17,10 +17,25 @@ angular
 		templateUrl: 'views/home.html',
 		controller: 'HomeController'
 	})
+	.state('search', {
+		url: '/search/:q',
+		templateUrl: 'views/home.html',
+		controller: 'SearchController'
+	})
 	.state('section', {
 		url: '/section/:id',
 		templateUrl: 'views/section.html',
 		controller: 'SectionController'
+	})
+	.state('about', {
+		url: '/about',
+		templateUrl: 'views/about.html',
+		controller: 'AboutController'
+	})
+	.state('us', {
+		url: '/us',
+		templateUrl: 'views/us.html',
+		controller: 'UsController'
 	})
 	.state('post', {
 		url: '/post/:slug',

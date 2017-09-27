@@ -7,6 +7,7 @@ angular
   $scope.data = {};
   $scope.data.name = "";
   $scope.data.email = "";
+  $scope.q_search = "";
 
   $scope.getSections = function() {
     Section
@@ -18,10 +19,16 @@ angular
   }
   $scope.getSections();
 
-  console.log()
+  $scope.goToState = function(state){
+    $state.go(state);
+  }
 
   $scope.goToSection = function(id){
     $state.go('section',{'id':id})
+  }
+
+  $scope.search = function(){
+    $state.go('search',{'q':$scope.q_search})
   }
 
   $scope.signUp = function(){
