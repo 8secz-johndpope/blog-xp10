@@ -8,7 +8,7 @@ angular
 	$scope.data.name = "";
 	$scope.data.email = "";
 
-
+	ga('send', 'pageview', '/landing/'+$stateParams.slug);
 	$scope.landing = [];
 	
 	$scope.height = (window.innerHeight > 800) ? window.innerHeight-230 + 'px' : '';

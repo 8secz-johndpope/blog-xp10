@@ -1,62 +1,105 @@
-<link href="css/landing.css" rel="stylesheet" type="text/css" media="all" />
-<div class="fullscreen landing parallax" style="background-image:url('img/bg-landing.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100" ng-cloak>
+<link href="css/calculadora.css" rel="stylesheet" type="text/css" media="all" />
+<div class="fullscreen landing parallax" style="background-image:url('img/bg-calc.jpg'); background-size: cover" data-img-width="2000" data-img-height="1333" data-diff="100" ng-cloak>
 
 	<div class="overlay" style="height: {{height}}">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-7 signup-header-text">
-
-
-					<!-- /.main title -->
-					<h1 class="wow fadeInLeft">
-						{{landing.title}}
-					</h1>
-
-					<!-- /.header paragraph -->
-					<div class="landing-text wow fadeInUp" ng-bind-html="landing.text | unsafe">
-						
-					</div>		
-					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-						<a class="a2a_button_facebook"></a>
-						<a class="a2a_button_twitter"></a>
-						<a class="a2a_button_google_plus"></a>
-						<a class="a2a_button_pinterest"></a>
-						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-					</div>
-
-					<script async src="https://static.addtoany.com/menu/page.js"></script>		  
-
+				<div class="col-md-2">
 				</div> 
 
 				<!-- /.signup form -->
-				<div class="col-md-5">
-
+				<div class="col-md-8">
+					<h1 class="wow fadeInLeft">
+						Calcule a produtividade da sua empresa
+					</h1>
 					<div class="signup-header wow fadeInUp">
-						<h3 class="form-title text-center">Baixar ebook</h3>
-						<form class="form-header" role="form" method="POST" id="login-form" name="landingForm">
+						<h3 class="form-title text-center">Preencha as informações abaixo para realizarmos o cálculo</h3>
+						<form class="form-header" role="form" method="POST" id="login-form" name="calcForm">
 							<div class="form-group" ng-if="!canDownload">
 								<input class="form-control input-lg" ng-model="data.name" name="name" id="name" type="text" placeholder="Seu nome" required>
-								<div ng-class="error" ng-show="landingForm.name.$error.required && landingForm.name.$touched">Nome é obrigatório</div>
+								<div ng-class="error" ng-show="calcForm.name.$error.required && calcForm.name.$touched">Nome é obrigatório</div>
 							</div>
 							<div class="form-group" ng-if="!canDownload">
-								<input class="form-control input-lg" ng-model="data.email"  name="email" id="email" type="email" placeholder="Email" required>
-								<div ng-class="error" ng-show="landingForm.email.$error.required && landingForm.email.$touched">Email é obrigatório</div>
-								<div ng-class="error" ng-show="landingForm.email.$invalid && landingForm.email.$touched">Email inválido</div>
+								<input class="form-control input-lg" ng-model="data.email"  name="email" id="email" type="email" placeholder="Email corporativo" required>
+								<div ng-class="error" ng-show="calcForm.email.$error.required && calcForm.email.$touched">Email é obrigatório</div>
+								<div ng-class="error" ng-show="calcForm.email.$invalid && calcForm.email.$touched">Email inválido</div>
 							</div>
-							<div class="form-group last" ng-if="!canDownload">
-								<input type="button" ng-click="downloadEbook()" ng-disabled="landingForm.$invalid" class="btn btn-warning btn-block btn-lg" value="Fazer download">
+							<div class="form-group" ng-if="!canDownload">
+								<input class="form-control input-lg" ng-model="data.faturamento"  name="faturamento" id="faturamento" type="number" placeholder="Faturamento anual da sua empresa" required min="1">
+								<div ng-class="error" ng-show="calcForm.faturamento.$error.required && calcForm.faturamento.$touched">Este campo é obrigatório</div>
+							</div>
+							<div class="form-group" ng-if="!canDownload">
+								<input class="form-control input-lg" ng-model="data.func"  name="func" id="func" type="number" placeholder="Quantidade de funcionários" required min="1">
+								<div ng-class="error" ng-show="calcForm.func.$error.required && calcForm.func.$touched">Este campo é obrigatório</div>
+							</div>
+							<div class="form-group last">
+								<input type="button" ng-click="calc()" ng-disabled="calcForm.$invalid" class="btn btn-warning btn-block btn-lg" value="Calcular">
 							</div>		
-							<div class="form-group last" ng-if="canDownload">
-								<a ng-href="{{landing.download}}" target="_blank" class="btn btn-warning btn-block btn-lg fit-btn">
-									Clique aqui para baixar
-								</a>
-							</div>	
 							<p>&nbsp;</p>					
 						</form>
 					</div>				
 
 				</div>
+				<div class="col-md-2">
+				</div> 
+
 			</div>
 		</div> 
+		<div class="container info" ng-if="calc_ok">
+			<h2>Resultado</h2>
+		</div>
+
+		<div class="container basic-info" ng-if="calc_ok">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-4 step1">
+					<div class="row box shape-1 animated bounceInLeft">
+						<div class="col-md-4 shape">
+							<div class="number">
+								<h1>01</h1>
+							</div>
+						</div>
+						<div class="col-md-7 col-md-offset-1">
+							<p>A produtividade de seus funcionários representa {{func_prod}}% dos funcionários americanos (os mais produtivos do mundo)</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-offset-4 step2">
+					<div class="row box shape-2 animated bounceInRight">
+						<div class="col-md-4 shape">
+							<div class="number">
+								<h1>02</h1>
+							</div>
+						</div>
+						<div class="col-md-7 col-md-offset-1">
+							<p>Cada um de seus funcionários gera em média R$ {{func_media}} para a empresa anualmente.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-offset-4 step3">
+					<div class="row box shape-3 animated bounceInLeft">
+						<div class="col-md-4 shape">
+							<div class="number">
+								<h1>03</h1>
+							</div>
+						</div>
+						<div class="col-md-7 col-md-offset-1">
+							<p>Atualmente está é a diferença em valor que você tem para o ambiente mais produtivo do mundo: R$ {{func_perda}}</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-offset-4 step4">
+					<div class="row box shape-4 animated bounceInRight">
+						<div class="col-md-4 shape">
+							<div class="number">
+								<h1>04</h1>
+							</div>
+						</div>
+						<div class="col-md-7 col-md-offset-1">
+							<p>Cada americano na população economicamente ativa produz quatro vezes mais que um brasileiro na mesma situação. Para fazer sua equipe ser mais produtiva baixe nossos ebooks e leia o conteúdo de nosso blog.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div> 
 </div>

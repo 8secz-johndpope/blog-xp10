@@ -47,6 +47,11 @@ angular
 		templateUrl: 'views/ebook.html',
 		controller: 'EbookController'
 	})
+	.state('calculadora', {
+		url: '/calculadora',
+		templateUrl: 'views/calculadora.html',
+		controller: 'CalcController'
+	})
 	.state('post', {
 		url: '/post/:slug',
 		templateUrl: 'views/post.html',
